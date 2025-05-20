@@ -1,0 +1,536 @@
+/* Carousel3D.css */
+.carousel-3d-container {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    perspective: 1500px;
+    margin: 2rem auto;
+    overflow: hidden;
+}
+
+.carousel-track {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.carousel-item {
+    position: absolute;
+    width: 180px;
+    height: 200px;
+    left: 50%;
+    top: 50%;
+    margin-left: -150px;
+    /* 居中定位 */
+    margin-top: -120px;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    transform-origin: center center;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.carousel-item-content {
+    position: relative;
+    width: 100%;
+    ;
+    height: 100%;
+
+}
+
+.carousel-item-title {
+    position: absolute;
+    top: 10%;
+    width: 100%;
+    /* left: 0%; */
+    /* background-color: #fff; */
+    text-align: center;
+}
+
+.carousel-item-title h4 {}
+
+.carousel-center-item {
+    margin: 10px 10px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-weight: 700;
+}
+
+.carousel-item-btn {
+    border-radius: 30px;
+    background-color: #fff;
+    color: black;
+    margin: 20rpx 15px;
+    margin-top: 0px;
+    width: 100px;
+    padding: 8px 5px;
+    margin: 0 auto;
+    /* text-align: center; */
+    font-size: x-small;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+
+}
+
+.carousel-item-btn .t1 {
+    margin-right: 23px;
+    /* background-color: red; */
+    margin-left: 23px;
+    text-align: center;
+}
+
+.carousel-item-des {
+    border-radius: 10px;
+    background-color: #fff;
+    color: black;
+    margin: 20rpx 15px;
+    width: 150px;
+    height: 32px;
+    padding: 8px 5px;
+    margin: 0 auto;
+    /* text-align: center; */
+    font-size: x-small;
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    bottom: 5px;
+    left: 10px;
+    display: flex;
+    flex-direction: row;
+    /* position: relative; */
+}
+
+.col1 {
+    width: 25%;
+    height: 100%;
+    /* background-color: antiquewhite; */
+
+}
+
+.circle-image-container {
+    width: 30px;
+    /* 容器宽度 */
+    height: 30px;
+    /* 容器高度（需与宽度相同） */
+    border-radius: 50%;
+    /* 圆形效果 */
+    overflow: hidden;
+    /* 隐藏超出部分 */
+    position: relative;
+    margin: 20px auto;
+    /* 居中显示 */
+    margin-top: 3px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    /* 可选阴影效果 */
+    background-color: #ff6b6b;
+    /* padding: 10px; */
+    /* border: 3px solid #fff;  */
+}
+
+.circle-image-container img {
+    width: 100%;
+    /* 图片宽度填满容器 */
+    height: 100%;
+    /* 图片高度填满容器 */
+    object-fit: cover;
+    /* 保持比例并覆盖容器 */
+    object-position: center;
+    /* 图片居中显示 */
+}
+
+.circle-image-container {
+    transition: transform 0.3s ease;
+}
+
+.circle-image-container:hover {
+    transform: scale(1.05);
+}
+
+.circle-image-container::before {
+    content: '';
+    position: absolute;
+    border: 4px solid transparent;
+    border-top-color: #ff6b6b;
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    animation: spin 1.5s linear infinite;
+}
+
+@keyframes spin {
+    /* to { transform: rotate(360deg); } */
+}
+
+
+.col2 {
+    width: 50%;
+    /* background-color: red; */
+    height: 100%;
+    padding-top: 7px;
+    font-size: 12px;
+}
+
+
+
+.col3 {
+    width: 25%;
+    /* background-color: blue; */
+    height: 100%;
+}
+
+.send-btn {
+    /* 基础样式 */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    /* gap: 8px; */
+    background-color: blue;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.2s ease;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-weight: 500;
+    border: 2px solid transparent;
+
+    /* 可访问性 */
+    position: relative;
+    outline: none;
+
+    /* 动态样式 */
+    padding: 2px 5px;
+    font-size: 10px;
+    margin-top: 5px;
+
+    /* 交互状态 */
+    &:hover:not(.disabled) {
+        background-color: color-mix(in srgb, var(--btn-color), black 15%);
+        transform: translateY(-1px);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    &:active:not(.disabled) {
+        background-color: color-mix(in srgb, var(--btn-color), black 25%);
+        transform: translateY(0);
+        box-shadow: none;
+    }
+
+    &:focus-visible {
+        border-color: color-mix(in srgb, var(--btn-color), white 30%);
+    }
+
+    /* 图标动画 */
+    .send-icon {
+        transition: transform 0.2s ease;
+    }
+
+    &:hover:not(.disabled) .send-icon {
+        transform: translateX(2px);
+    }
+
+    /* 禁用状态 */
+    &.disabled {
+        pointer-events: none;
+    }
+}
+
+.select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding: 12px 30px 12px 10px;
+    padding: 0px;
+    font-size: 12px;
+    /* border: 2px solid #000; */
+    border-radius: 6px;
+    width: 24px;
+    height: 15px;
+    /* background-color: #000; */
+    /* background-color:red; */
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNNy40MSA4LjU5TDEyIDEzLjE3bDQuNTktNC41OEwxOCAxMGwtNiA2LTYtNiAxLjQxLTEuNDF6IiBmaWxsPSIjMzQ5OERCIi8+PC9zdmc+');
+    background-repeat: no-repeat;
+    background-position: left 5px center;
+    background-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    /* margin-right: 10px; */
+    position: absolute;
+    right: 15px;
+
+}
+
+.select_text {
+    margin-right: 23px;
+}
+
+.carousel-item.active {
+    filter: brightness(1.05);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+.thumbnail {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.nav-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.95);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 100;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-button:hover {
+    background: white;
+    transform: translateY(-50%) scale(1.1);
+}
+
+.prev {
+    left: 30px;
+}
+
+.next {
+    right: 30px;
+}
+
+@media (max-width: 768px) {
+    .carousel-3d-container {
+        height: 300px;
+        perspective: 1000px;
+    }
+
+    .carousel-item {
+        width: 140px;
+        height: 130px;
+        margin-left: -100px;
+        margin-top: -75px;
+    }
+
+    .nav-button {
+        width: 35px;
+        height: 35px;
+        font-size: 20px;
+    }
+
+    .select {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        padding: 1rem 2rem 1rem 1rem;
+        padding: 0px;
+        font-size: 1rem;
+        /* border: 2px solid #000; */
+        border-radius: 6px;
+        width: 2rem;
+        height: 0.8rem;
+        /* background-color: #000; */
+        /* background-color:red; */
+        background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNNy40MSA4LjU5TDEyIDEzLjE3bDQuNTktNC41OEwxOCAxMGwtNiA2LTYtNiAxLjQxLTEuNDF6IiBmaWxsPSIjMzQ5OERCIi8+PC9zdmc+');
+        background-repeat: no-repeat;
+        background-position: left 1.4rem center;
+        background-size: 14px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        /* margin-right: 10px; */
+        position: absolute;
+        right: 15px;
+
+    }
+
+
+    .send-btn {
+        /* 基础样式 */
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        /* gap: 8px; */
+        background-color: blue;
+        color: white;
+        border-radius: 3px;
+        cursor: pointer;
+        user-select: none;
+        transition: all 0.2s ease;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        font-weight: 500;
+        border: 1px solid transparent;
+
+        /* 可访问性 */
+        position: relative;
+        outline: none;
+
+        /* 动态样式 */
+        padding: 1px 2px;
+        font-size: 10px;
+        margin-top: 5px;
+
+        /* 交互状态 */
+        &:hover:not(.disabled) {
+            background-color: color-mix(in srgb, var(--btn-color), black 15%);
+            transform: translateY(-1px);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        &:active:not(.disabled) {
+            background-color: color-mix(in srgb, var(--btn-color), black 25%);
+            transform: translateY(0);
+            box-shadow: none;
+        }
+
+        &:focus-visible {
+            border-color: color-mix(in srgb, var(--btn-color), white 30%);
+        }
+
+        /* 图标动画 */
+        .send-icon {
+            transition: transform 0.2s ease;
+        }
+
+        &:hover:not(.disabled) .send-icon {
+            transform: translateX(2px);
+        }
+
+        /* 禁用状态 */
+        &.disabled {
+            pointer-events: none;
+        }
+    }
+
+
+    .carousel-item-des {
+        border-radius: 10px;
+        background-color: #fff;
+        color: black;
+        margin: 20rpx 15px;
+        width: 6.5rem;
+        height: 1.5rem;
+        padding: 8px 5px;
+        margin: 0 auto;
+        /* text-align: center; */
+        font-size: x-small;
+        display: flex;
+        flex-direction: row;
+        position: absolute;
+        bottom: 2px;
+        /* left: 2px; */
+        left: 50%;
+        /* top: 50%; */
+        transform: translate(-50%, -10%);
+        /* position: relative; */
+    }
+
+    .circle-image-container {
+        width: 15px;
+        /* 容器宽度 */
+        height: 15px;
+        /* 容器高度（需与宽度相同） */
+        border-radius: 50%;
+        /* 圆形效果 */
+        overflow: hidden;
+        /* 隐藏超出部分 */
+        position: relative;
+        margin: 10px auto;
+        /* 居中显示 */
+        margin-top: 0.5rem;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+        /* 可选阴影效果 */
+
+        /* padding: 10px; */
+        /* border: 3px solid #fff;  */
+    }
+
+
+    .carousel-center-item {
+        margin: 0 auto;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        font-weight: 700;
+    }
+
+    .carousel-item-btn {
+        border-radius: 2rem;
+        background-color: #fff;
+        color: black;
+        margin: 1rem 5rem;
+    
+        /* margin-top: 2rem; */
+        width: 4rem;
+        padding: 0.25rem 0.5rem;
+        margin: 0 auto;
+        /* text-align: center; */
+        font-size: 0.75rem;
+        display: flex;
+        flex-direction: row;
+        position: relative;
+        /* background-color: red; */
+         margin:0 auto;
+        margin-bottom: 0.5rem;
+margin-top: 0.5rem;
+        text-align: center;
+
+    }
+
+    .carousel-item-btn .t1 {
+        margin-right: 23px;
+        /* background-color: red; */
+        margin-left: 23px;
+        text-align: center;
+    }
+}
+
+/* 新增指示器样式 */
+.indicators-container {
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 100;
+}
+
+.indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid #000;
+    background: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+}
+
+.indicator.active {
+    background: #333;
+    transform: scale(1.2);
+    box-shadow: 0 2px 8px rgba(1, 0, 0, 0.2);
+}
+
+.indicator:hover:not(.active) {
+    background: rgba(255, 255, 255, 0.6);
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+    .indicators-container {
+        bottom: 15px;
+    }
+
+    .indicator {
+        width: 10px;
+        height: 10px;
+    }
+}

@@ -1,0 +1,98 @@
+/* ImageGallery.css */
+.gallery-container {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 50px;
+    overflow: hidden;
+}
+
+.slider-track {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 250px;
+    transition: transform 0.5s ease-in-out;
+}
+
+.thumbnail-wrapper {
+    position: absolute;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    filter: brightness(0.8);
+}
+
+.thumbnail {
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.thumbnail.active {
+    filter: brightness(1);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.nav-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.8);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.nav-button:hover {
+    background: rgba(255, 255, 255, 1);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+@media (max-width: 768px) {
+    .gallery-container {
+        padding: 0 30px;
+    }
+
+    .thumbnail {
+        width: 150px;
+        height: 112px;
+    }
+
+    .slider-track {
+        height: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-container {
+        padding: 0 20px;
+    }
+
+    .thumbnail {
+        width: 120px;
+        height: 90px;
+    }
+
+    .nav-button {
+        width: 30px;
+        height: 30px;
+        font-size: 1.2rem;
+    }
+}
